@@ -6,10 +6,10 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    public function index()
-    {
-        return view('tasks.index', [
-            'tasks' => Task::paginate(10),
-        ]);
-    }
+//    public function index()
+//    {
+//        return view('tasks.index', [
+//            'tasks' => Task::paginate(10),
+//        ]);
+//    }
 }

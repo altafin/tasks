@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TaskController;
+//use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -19,7 +19,11 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 
-    Route::resource('laravel/tasks', TaskController::class);
+    Route::get('tasks', \App\Livewire\Tasks\Index::class)->name('tasks.index');
+    Route::get('tasks/create', \App\Livewire\Tasks\Create::class)->name('tasks.create');
+    Route::get('tasks/edit/{task}', \App\Livewire\Tasks\Edit::class)->name('tasks.edit');
+
+//    Route::resource('laravel/tasks', TaskController::class);
 });
 
 require __DIR__.'/auth.php';
