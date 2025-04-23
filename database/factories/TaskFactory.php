@@ -17,7 +17,8 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => rtrim($this->faker->sentence(4), '.'),
+            'description' => fake()->text(),
         ];
     }
 }

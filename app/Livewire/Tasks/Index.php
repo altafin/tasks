@@ -15,7 +15,6 @@ class Index extends Component
     public function taskDelete(int $id): void
     {
         $this->dispatch('confirm', id: $id);
-        //Task::where('id', $id)->delete();
     }
 
     #[On('delete')]
