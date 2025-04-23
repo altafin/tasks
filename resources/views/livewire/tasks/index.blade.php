@@ -24,7 +24,7 @@
                     </td>
                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                         <flux:button :href="route('tasks.edit', $task)">Edit</flux:button>
-                        <flux:button variant="danger" wire:click="delete({{ $task->id }})" wire:confirm="Are you sure?">Delete</flux:button>
+                        <flux:button variant="danger" wire:click="taskDelete({{ $task->id }})">Delete</flux:button> <!--wire:confirm="Are you sure?"-->
                     </td>
                 </tr>
             @endforeach
@@ -37,3 +37,23 @@
     </div>
 
 </div>
+
+@script
+<script>
+    $wire.on('confirm', (event) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $wire.dispatch('delete', { id: event.id });
+            }
+        });
+    });
+</script>
+@endscript

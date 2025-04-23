@@ -6,14 +6,22 @@ use App\Models\Task;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
+use Livewire\Attributes\On;
 
 class Index extends Component
 {
     use WithPagination;
 
-    public function delete(int $id): void
+    public function taskDelete(int $id): void
     {
-        Task::where('id', $id)->delete();
+        $this->dispatch('confirm', id: $id);
+        //Task::where('id', $id)->delete();
+    }
+
+    #[On('delete')]
+    public function delete($id)
+    {
+        Task::find($id)->delete();
     }
 
     public function render(): View
