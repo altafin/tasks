@@ -33,8 +33,8 @@ Simples sistema de tarefas para praticar o Laravel 12 com Starter Kit Livewire
 
 |              |  versão   |
 |--------------|:---------:|
-| Livewire     |     3     |
 | Laravel      |  12.9.2   |
+| Livewire     |     3     |
 | Laravel Sail |   1.41    |
 | Tailwind CSS |   4.0.7   |
-| sweetalert 2 |  11.6.13  |
+| SweetAlert 2 |  11.6.13  |
